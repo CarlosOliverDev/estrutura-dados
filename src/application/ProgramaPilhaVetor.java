@@ -2,7 +2,7 @@ package application;
 
 import entities.vetores.PilhaVetor;
 
-public class Programa {
+public class ProgramaPilhaVetor {
     public static void main(String[] args) {
         int tamanhoPilha = 5;
 
