@@ -13,50 +13,50 @@ public class FilaVetor {
 
     public void adicionarFila(Object novoItem) {
         if(!isFull()) {
-            System.out.printf("\nItem %s adicionado à fila.", novoItem);
+            System.out.printf("Item %s adicionado à fila.\n", novoItem);
             fila[fim%tamanhoTotal] = novoItem;
             fim++;
         } else {
-            System.out.println("\nFila está cheia, por favor, retire um item antes de inserir novamente.");
+            System.out.println("Fila está cheia, por favor, retire um item antes de inserir novamente.");
         }
     }
 
     public void retirarFila() {
         if(!isEmpty()) {
-            System.out.printf("\nItem %s retirado da fila.",fila[inicio%tamanhoTotal]);
+            System.out.printf("Item %s retirado da fila.\n",fila[inicio%tamanhoTotal]);
             fila[inicio%tamanhoTotal] = null;
             inicio++;
         } else {
-            System.out.println("\nFila vazia.");
+            System.out.println("Fila vazia.");
         }
     }
 
     public void verificarQuantidade() {
         if(isEmpty()) {
-            System.out.println("\nFila vazia. Não é possível verificar a quantidade.");
+            System.out.println("Fila vazia. Não é possível verificar a quantidade.");
         } else if((fim - inicio) == 1) {
-            System.out.println("\nA fila tem 1 item.");
+            System.out.println("A fila tem 1 item.");
         } else {
-            System.out.printf("\nA fila tem %d itens.",(fim - inicio));
+            System.out.printf("A fila tem %d itens.\n",(fim - inicio));
         }
     }
 
     public void imprimirFila() {
         if(isEmpty()) {
-            System.out.println("\nFila vazia. Não é possível imprimir a fila.");
+            System.out.println("Fila vazia. Não é possível imprimir a fila.");
         } else {
-            System.out.println("\nItens da fila:");
+            System.out.println("Itens da fila:");
             for(int i = 0; i < tamanhoTotal; i++) {
-                System.out.printf("\n%s",fila[(inicio + i) % tamanhoTotal]);
+                System.out.printf("%s\n",fila[(inicio + i) % tamanhoTotal]);
             }
         }
     }
 
-    public boolean isEmpty() {
+    private boolean isEmpty() {
         return inicio == fim;
     }
 
-    public boolean isFull() {
+    private boolean isFull() {
         return fim - inicio == fila.length;
     }
 }
