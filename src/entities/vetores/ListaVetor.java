@@ -10,40 +10,55 @@ public class ListaVetor {
     }
 
     public void inserirElemento(Object novoElemento, int indice) {
+        if(indice >= tamanhoLista) {
+            System.out.println("Número de índice incompatível com o tamanho da lista.");
+            return;
+        }
+
         if(lista[indice] == null) {
             lista[indice] = novoElemento;
-            System.out.printf("\nElemento %s adicionado a lista.",novoElemento);
+            System.out.printf("Elemento %s adicionado a lista.\n",novoElemento);
         } else {
-            System.out.print("\nJá existe um elemento nesse índice.");
+            System.out.println("Já existe um elemento nesse índice.");
         }
     }
 
     public void retirarElemento(int indice) {
+        if(indice >= tamanhoLista) {
+            System.out.println("Número de índice incompatível com o tamanho da lista.");
+            return;
+        }
+
         if(lista[indice] == null) {
-            System.out.print("\nNão há nenhum elemento nesse índice.");
+            System.out.println("Não há nenhum elemento nesse índice.");
         } else {
-            System.out.printf("\nElemento %s retirado da lista.",lista[indice]);
+            System.out.printf("Elemento %s retirado da lista.\n",lista[indice]);
             lista[indice] = null;
         }
     }
 
     public void substituirElemento(Object novoElemento, int indice) {
+        if(indice >= tamanhoLista) {
+            System.out.println("Número de índice incompatível com o tamanho da lista.");
+            return;
+        }
+
         if(lista[indice] == null) {
-            System.out.printf("\nÍndice estava vazio, será adicionado %s nesse índice.",novoElemento);
+            System.out.printf("Índice estava vazio, será adicionado %s nesse índice.\n",novoElemento);
             inserirElemento(novoElemento, indice);
         } else {
-            System.out.printf("\nElemento %s substituído por %s no índice %d.",lista[indice],novoElemento,indice);
+            System.out.printf("Elemento %s substituído por %s no índice %d.\n",lista[indice],novoElemento,indice);
         }
     }
 
     public void imprimirLista() {
         if(isEmpty()) {
-            System.out.print("\nLista vazia.");
+            System.out.println("Lista vazia.");
         } else {
-            System.out.print("\nLista:");
+            System.out.println("Lista:");
             for(int i = 0; i < tamanhoLista; i++) {
                 if(lista[i] != null) {
-                    System.out.printf("\nElemento | %s | encontrado no índice %d.",lista[i],i);
+                    System.out.printf("Elemento | %s | encontrado no índice %d.\n",lista[i],i);
                 }
             }
             System.out.println();
@@ -54,17 +69,17 @@ public class ListaVetor {
         for (int i = 0; i < tamanhoLista; i++) {
             lista[i] = null;
         }
-        System.out.print("\nLista apagada.");
+        System.out.println("Lista apagada.");
     }
 
     public void verificarVazios() {
         if(isEmpty()) {
-            System.out.print("\nLista vazia.");
+            System.out.println("Lista vazia.");
         } else {
             int contador = 0;
             for (int i = 0; i < tamanhoLista; i++) {
                 if(lista[i] == null) {
-                    System.out.printf("\nEspaço vazio encontrado no índice %d.",i);
+                    System.out.printf("Espaço vazio encontrado no índice %d.\n",i);
                     contador++;
                 }
 
@@ -76,7 +91,7 @@ public class ListaVetor {
         }
     }
 
-    private void verificarQuantidade() {
+    public void verificarQuantidade() {
         if(!isEmpty()) {
             int contador = 0;
 
@@ -87,13 +102,13 @@ public class ListaVetor {
             }
 
             if(contador == tamanhoLista) {
-                System.out.printf("\nLista está cheia. Existem %d elementos.",tamanhoLista);
+                System.out.printf("Lista está cheia. Existem %d elementos.\n",tamanhoLista);
             } else {
-                System.out.printf("\nExistem %d elementos na lista.",contador);
+                System.out.printf("Existem %d elementos na lista.\n",contador);
             }
 
         } else {
-            System.out.print("\nLista vazia.");
+            System.out.println("Lista vazia.");
         }
     }
 

@@ -16,13 +16,13 @@ public class ProgramaListaVetor {
         lista.inserirElemento("Carlos", 0);
         lista.inserirElemento("Carlos", 1);
         lista.inserirElemento(22, 2);
-        //lista.inserirElemento(22, 3);
-        //Preciso verificar antes de adicionar.
+        lista.inserirElemento(22, 3);
 
         System.out.println();
 
         lista.imprimirLista();
         lista.verificarVazios();
+        lista.verificarQuantidade();
 
         System.out.println();
 
@@ -32,13 +32,13 @@ public class ProgramaListaVetor {
 
         lista.retirarElemento(3);
         lista.retirarElemento(2);
-        //lista.retirarElemento(5);
-        //Preciso verificar antes de retirar.
+        lista.retirarElemento(5);
 
         System.out.println();
 
         lista.imprimirLista();
         lista.verificarVazios();
+        lista.verificarQuantidade();
 
         System.out.println();
 
