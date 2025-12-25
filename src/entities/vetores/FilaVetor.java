@@ -1,10 +1,10 @@
 package entities.vetores;
 
 public class FilaVetor {
-    Object[] fila;
-    int inicio = 0;
-    int fim = 0;
-    int tamanhoTotal = 0;
+    private Object[] fila;
+    private int inicio = 0;
+    private int fim = 0;
+    private int tamanhoTotal = 0;
 
     public FilaVetor(int tamanhoVetor) {
         this.tamanhoTotal = tamanhoVetor;
@@ -57,6 +57,6 @@ public class FilaVetor {
     }
 
     private boolean isFull() {
-        return fim - inicio == fila.length;
+        return fim - inicio == tamanhoTotal;
     }
 }
