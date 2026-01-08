@@ -34,5 +34,15 @@ public class PesquisaBinaria {
         }
     }
 
+    public static void imprimirArray(int[] intArray) {
+        System.out.print("Array: [");
+        for (int i = 0; i < intArray.length; i++) {
+            if(i == intArray.length-1) {
+                System.out.println(intArray[i]+"]");
+            } else {
+                System.out.println(intArray[i]+", ");
+            }
+        }
+    }
     
 }
