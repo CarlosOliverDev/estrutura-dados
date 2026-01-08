@@ -5,19 +5,26 @@ import java.util.Scanner;
 public class PesquisaBinaria {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] intArray = new int[]{10,0,-2,32,41};
+
+        int[] intArray = montarArray(scanner);
+
+        System.out.println("\nVetor de inteiro completo:");
 
         imprimirArray(intArray);
 
-        System.out.print("Digite qual valor você quer buscar: ");
-        int item = scanner.nextInt();
-        scanner.nextLine();
+        System.out.println("\nVetor de inteiro organizado:");
         
         organizarArray(intArray);
 
         imprimirArray(intArray);
 
+        System.out.print("\nDigite qual valor você quer buscar: ");
+        int item = scanner.nextInt();
+        scanner.nextLine();
+
         int posicao = buscaBinaria(item, intArray);
+
+        System.out.println();
         if(posicao == -1) {
             System.out.printf("O número %d não está no vetor.",item);
         } else {
@@ -25,6 +32,24 @@ public class PesquisaBinaria {
         }
         
         scanner.close();
+    }
+
+    public static int[] montarArray(Scanner scanner) {
+        System.out.print("Digite o tamanho do array de inteiros: ");
+        int tamanhoArray = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println();
+
+        int[] array = new int[tamanhoArray];
+
+        for(int i = 0; i < tamanhoArray; i++) {
+            System.out.printf("Digite o valor do inteiro na posição %d: ",i);
+            array[i] = scanner.nextInt();
+            scanner.nextLine();
+        }
+
+        return array;
     }
 
     public static void organizarArray(int[] intArray) {
@@ -66,7 +91,6 @@ public class PesquisaBinaria {
                 baixo = meio+1;
             }
         }
-
         return -1;
     }
 }
