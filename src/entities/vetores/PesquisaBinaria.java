@@ -9,13 +9,10 @@ public class PesquisaBinaria {
         int[] intArray = montarArray(scanner);
 
         System.out.println("\nVetor de inteiro completo:");
-
         imprimirArray(intArray);
 
         System.out.println("\nVetor de inteiro organizado:");
-        
         organizarArray(intArray);
-
         imprimirArray(intArray);
 
         System.out.print("\nDigite qual valor você quer buscar: ");
@@ -23,14 +20,8 @@ public class PesquisaBinaria {
         scanner.nextLine();
 
         int posicao = buscaBinaria(item, intArray);
+        imprimirResultado(item, posicao);
 
-        System.out.println();
-        if(posicao == -1) {
-            System.out.printf("O número %d não está no vetor.",item);
-        } else {
-            System.out.printf("O número %d está no índice %d da lista.",item,posicao);
-        }
-        
         scanner.close();
     }
 
@@ -48,7 +39,6 @@ public class PesquisaBinaria {
             array[i] = scanner.nextInt();
             scanner.nextLine();
         }
-
         return array;
     }
 
@@ -92,5 +82,14 @@ public class PesquisaBinaria {
             }
         }
         return -1;
+    }
+
+    public static void imprimirResultado(int item, int posicao) {
+        System.out.println();
+        if(posicao == -1) {
+            System.out.printf("O número %d não está no vetor.",item);
+        } else {
+            System.out.printf("O número %d está no índice %d da lista.",item,posicao);
+        }
     }
 }
