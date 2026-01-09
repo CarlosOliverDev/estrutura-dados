@@ -6,72 +6,77 @@ public class PesquisaBinaria {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[] intArray = montarArray(scanner);
+        System.out.println("Bem-vindo ao programa de pesquisa binária, nele você criará um vetor de inteiros que será ordenado e poderá pesquisar a posição de um valor do vetor.");
 
-        System.out.println("\nVetor de inteiro completo:");
-        imprimirArray(intArray);
+        System.out.print("Digite o tamanho do vetor de inteiros: ");
+        int tamanhoVetor = scanner.nextInt();
+        scanner.nextLine();
 
-        System.out.println("\nVetor de inteiro organizado:");
-        organizarArray(intArray);
-        imprimirArray(intArray);
+        int[] arrayInt = criarVetorInt(tamanhoVetor, scanner);
 
-        System.out.print("\nDigite qual valor você quer buscar: ");
+        System.out.print("\nVetor Completo: \n[");
+        imprimirVetor(arrayInt);
+
+        System.out.println("\nOrdenando vetor.");
+        ordenarVetor(arrayInt);
+
+        System.out.print("Vetor Ordenado: \n[");
+        imprimirVetor(arrayInt);
+
+        System.out.print("\nDigite o número inteiro que deseja buscar a posição no vetor: ");
         int item = scanner.nextInt();
         scanner.nextLine();
 
-        int posicao = buscaBinaria(item, intArray);
-        imprimirResultado(item, posicao);
+        System.out.println("\nPesquisando o número.");
+        int posicao = pesquisaBinaria(arrayInt, item);
+
+        imprimirPosicao(item, posicao);
 
         scanner.close();
     }
 
-    public static int[] montarArray(Scanner scanner) {
-        System.out.print("Digite o tamanho do array de inteiros: ");
-        int tamanhoArray = scanner.nextInt();
-        scanner.nextLine();
+    public static int[] criarVetorInt(int tamanhoVetor, Scanner scanner) {
+        System.out.println("\nCriando vetor:");
+        int[] arrayInt = new int[tamanhoVetor];
 
-        System.out.println();
-
-        int[] array = new int[tamanhoArray];
-
-        for(int i = 0; i < tamanhoArray; i++) {
-            System.out.printf("Digite o valor do inteiro na posição %d: ",i);
-            array[i] = scanner.nextInt();
+        for(int i = 0; i < tamanhoVetor; i++) {
+            System.out.printf("Digite o valor da posição %d do vetor: ",i);
+            arrayInt[i] = scanner.nextInt();
             scanner.nextLine();
         }
-        return array;
+
+        return arrayInt;
     }
 
-    public static void organizarArray(int[] intArray) {
-        for (int i = 0; i < intArray.length; i++) {
-            for (int j = i; j < intArray.length; j++) {
-                if(intArray[i]>intArray[j]) {
-                    int aux = intArray[i];
-                    intArray[i] = intArray[j];
-                    intArray[j] = aux;
+    public static void imprimirVetor(int[] arrayInt) {
+        for(int i = 0; i < arrayInt.length; i++) {
+            if(i < arrayInt.length-1) {
+                System.out.printf("%d, ",arrayInt[i]);
+            } else {
+                System.out.printf("%d]\n",arrayInt[i]);
+            }
+        }
+    }
+
+    public static void ordenarVetor(int[] arrayInt) {
+        for(int i = 0; i < arrayInt.length; i++) {
+            for(int j = i; j < arrayInt.length; j++) {
+                if(arrayInt[i] > arrayInt[j]) {
+                    int aux = arrayInt[j];
+                    arrayInt[j] = arrayInt[i];
+                    arrayInt[i] = aux;
                 }
             }
         }
     }
 
-    public static void imprimirArray(int[] intArray) {
-        System.out.print("Array: [");
-        for (int i = 0; i < intArray.length; i++) {
-            if(i == intArray.length-1) {
-                System.out.println(intArray[i]+"]");
-            } else {
-                System.out.print(intArray[i]+", ");
-            }
-        }
-    }
-
-    public static int buscaBinaria(int item, int[] intArray) {
+    public static int pesquisaBinaria(int[] arrayInt, int item) {
+        int alto = arrayInt.length-1;
         int baixo = 0;
-        int alto = intArray.length-1;
 
-        while(baixo <= alto) {
+        while( baixo <= alto) {
             int meio = (alto+baixo)/2;
-            int chute = intArray[meio];
+            int chute = arrayInt[meio];
 
             if(chute == item) {
                 return meio;
@@ -84,12 +89,11 @@ public class PesquisaBinaria {
         return -1;
     }
 
-    public static void imprimirResultado(int item, int posicao) {
-        System.out.println();
+    public static void imprimirPosicao(int item, int posicao) {
         if(posicao == -1) {
-            System.out.printf("O número %d não está no vetor.",item);
+            System.out.printf("O número %d não está no vetor.", item);
         } else {
-            System.out.printf("O número %d está no índice %d da lista.",item,posicao);
+            System.out.printf("O número %d se encontra na posição %d do vetor!",item ,posicao);
         }
     }
 }
