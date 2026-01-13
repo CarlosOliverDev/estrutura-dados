@@ -14,12 +14,11 @@ public class ListaVetor {
             System.out.println("Número de índice incompatível com o tamanho da lista.");
             return;
         }
-
         if(lista[indice] == null) {
             lista[indice] = novoElemento;
-            System.out.printf("Elemento %s adicionado a lista.\n",novoElemento);
+            System.out.printf("Elemento %s adicionado no índice %d da lista.\n",novoElemento, indice);
         } else {
-            System.out.println("Já existe um elemento nesse índice.");
+            System.out.printf("Já existe um elemento no índice %d.\n", indice);
         }
     }
 
@@ -28,7 +27,6 @@ public class ListaVetor {
             System.out.println("Número de índice incompatível com o tamanho da lista.");
             return;
         }
-
         if(lista[indice] == null) {
             System.out.println("Não há nenhum elemento nesse índice.");
         } else {
@@ -42,12 +40,11 @@ public class ListaVetor {
             System.out.println("Número de índice incompatível com o tamanho da lista.");
             return;
         }
-
         if(lista[indice] == null) {
-            System.out.printf("Índice estava vazio, será adicionado %s nesse índice.\n",novoElemento);
+            System.out.printf("Índice estava vazio, %s será adicionado nesse índice.\n",novoElemento);
             inserirElemento(novoElemento, indice);
         } else {
-            System.out.printf("Elemento %s substituído por %s no índice %d.\n",lista[indice],novoElemento,indice);
+            System.out.printf("Elemento | %s | substituído por %s no índice %d.\n",lista[indice],novoElemento,indice);
         }
     }
 
@@ -58,7 +55,7 @@ public class ListaVetor {
             System.out.println("Lista:");
             for(int i = 0; i < tamanhoLista; i++) {
                 if(lista[i] != null) {
-                    System.out.printf("Elemento | %s | encontrado no índice %d.\n",lista[i],i);
+                    System.out.printf("| %s | Índice %d.\n",lista[i],i);
                 }
             }
             System.out.println();
@@ -82,8 +79,6 @@ public class ListaVetor {
                     System.out.printf("Espaço vazio encontrado no índice %d.\n",i);
                     contador++;
                 }
-
-
             }
             if(contador == 0) {
                 System.out.println("Não há vazios na lista.");

@@ -1,4 +1,4 @@
-package entities.vetores;
+package application;
 
 import java.util.Scanner;
 
