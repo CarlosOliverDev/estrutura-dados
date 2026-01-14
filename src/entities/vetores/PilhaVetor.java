@@ -63,10 +63,8 @@ public class PilhaVetor {
         if(isEmpty()) {
             System.out.println("A pilha está vazia.");
         } else {
-            for(int i = 0; i < pilha.length; i++) {
-                if(pilha[i] != null) {
-                    System.out.println(pilha[i]);
-                }
+            for(int i = topo-1; i >= 0; i--) {
+                System.out.println(pilha[i]);
             }
         }
     }
