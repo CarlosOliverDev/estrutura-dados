@@ -46,6 +46,22 @@ public class ListaEncadeadaVetor {
         atual.proximo = novo;
     }
 
+    public void imprimirQuantidade() {
+        No atual = cabeca;
+        int contador = 0;
+
+        while(atual != null) {
+            contador ++;
+            atual = atual.proximo;
+        }
+
+        if(contador == 0) {
+            System.out.println("Lista vazia.");
+        } else {
+            System.out.println("A lista encadeada tem " + contador + " elemento(s).");
+        }
+    }
+
     public void imprimirLista() {
         No atual = cabeca;
 
@@ -53,6 +69,6 @@ public class ListaEncadeadaVetor {
             System.out.print(atual.valor + " --> ");
             atual = atual.proximo;
         }
-        System.out.println("null.");
+        System.out.println("Null.");
     }
 }
