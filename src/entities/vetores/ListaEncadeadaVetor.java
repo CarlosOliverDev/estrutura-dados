@@ -55,6 +55,30 @@ public class ListaEncadeadaVetor {
         cabeca = cabeca.proximo;
     }
 
+    public void removerMeio(int posicao) {
+        if(posicao < 0) {
+            System.out.println("Posição inválida. Tente uma posição maior que 0.");
+            return;
+        } else if(posicao == 0) {
+            removerInicio();
+            return;
+        }
+
+        int contador = 1;
+        No atual = cabeca;
+        while(contador != posicao) {
+            contador++;
+            atual = atual.proximo;
+
+            if(atual.proximo == null) {
+                System.out.println("A lista é menor do que a posição desejada.");
+                return;
+            }
+        }
+        System.out.println("Elemento "+ atual.proximo.valor +" excluído.");
+        atual.proximo = atual.proximo.proximo;
+    }
+
     public void removerFim() {
         No atual = cabeca;
         while(atual.proximo.proximo != null) {
