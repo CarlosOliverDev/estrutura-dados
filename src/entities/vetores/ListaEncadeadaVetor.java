@@ -55,6 +55,15 @@ public class ListaEncadeadaVetor {
         cabeca = cabeca.proximo;
     }
 
+    public void removerFim() {
+        No atual = cabeca;
+        while(atual.proximo.proximo != null) {
+            atual = atual.proximo;
+        }
+        System.out.println("Elemento "+ atual.proximo.valor +" excluído.");
+        atual.proximo = null;
+    }
+
     public void imprimirQuantidade() {
         No atual = cabeca;
         int contador = 0;
@@ -73,7 +82,6 @@ public class ListaEncadeadaVetor {
 
     public void imprimirLista() {
         No atual = cabeca;
-
         while(atual != null) {
             System.out.print(atual.valor + " --> ");
             atual = atual.proximo;
