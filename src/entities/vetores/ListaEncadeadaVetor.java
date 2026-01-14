@@ -35,6 +35,17 @@ public class ListaEncadeadaVetor {
         atual.proximo = novo;
     }
 
+    public void addFim(int valor) {
+        No novo = new No(valor);
+        No atual = cabeca;
+
+        while(atual.proximo != null) {
+            atual = atual.proximo;
+        }
+
+        atual.proximo = novo;
+    }
+
     public void imprimirLista() {
         No atual = cabeca;
 
