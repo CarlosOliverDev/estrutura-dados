@@ -1,12 +1,12 @@
 package entities.vetores;
 
-public class FilaVetor {
+public class FilaCircularVetor {
     private Object[] fila;
     private int inicio = 0;
     private int fim = 0;
     private int tamanhoTotal = 0;
 
-    public FilaVetor(int tamanhoVetor) {
+    public FilaCircularVetor(int tamanhoVetor) {
         this.tamanhoTotal = tamanhoVetor;
         this.fila = new Object[tamanhoTotal];
     }

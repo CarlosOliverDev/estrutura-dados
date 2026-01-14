@@ -1,10 +1,10 @@
 package application;
 
-import entities.vetores.FilaVetor;
+import entities.vetores.FilaCircularVetor;
 
 public class ProgramaFilaVetor {
     public static void main(String[] args) {
-        FilaVetor fila = new FilaVetor(5);
+        FilaCircularVetor fila = new FilaCircularVetor(5);
 
         fila.retirarFila();
         fila.imprimirFila();
