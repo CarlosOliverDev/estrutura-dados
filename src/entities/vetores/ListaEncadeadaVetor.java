@@ -46,6 +46,15 @@ public class ListaEncadeadaVetor {
         atual.proximo = novo;
     }
 
+    public void removerInicio() {
+        if(cabeca == null) {
+            System.out.println("Lista vazia.");
+            return;
+        }
+        System.out.println("Elemento "+ cabeca.valor+" excluído.");
+        cabeca = cabeca.proximo;
+    }
+
     public void imprimirQuantidade() {
         No atual = cabeca;
         int contador = 0;
