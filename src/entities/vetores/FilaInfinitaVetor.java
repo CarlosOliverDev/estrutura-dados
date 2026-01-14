@@ -27,18 +27,24 @@ public class FilaInfinitaVetor {
             System.out.println("Fila vazia, adicione um item antes de retirar.");
         } else {
             System.out.printf("O item %s foi retirado da fila.\n",fila[inicio]);
+            fila[inicio] = null;
             inicio++;
         }
     }
 
     private void aumentarFila() {
-        Object[] aux = fila;
         tamanhoTotal *= 2;
-        fila = new Object[tamanhoTotal];
+        Object[] novaFila = new Object[tamanhoTotal];
 
-        for (int i = 0; i < aux.length; i++) {
-            fila[i] = aux[i];
+        int indiceNovo = 0;
+        for (int i = inicio; i < fim; i++) {
+            novaFila[indiceNovo] = fila[i];
+            indiceNovo++;
         }
+
+        fila = novaFila;
+        fim = indiceNovo;
+        inicio = 0;
     }
 
     public void imprimirFila() {
@@ -46,7 +52,7 @@ public class FilaInfinitaVetor {
             System.out.println("Fila vazia.");
         } else {
             System.out.println("Fila:");
-            for (int i = inicio; i < tamanhoTotal; i++) {
+            for (int i = inicio; i < fim; i++) {
                 if(fila[i] != null)
                     System.out.printf("-%s\n",fila[i]);
             }
