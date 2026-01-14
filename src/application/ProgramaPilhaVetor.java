@@ -40,6 +40,5 @@ public class ProgramaPilhaVetor {
         pilha.imprimirTopo();
         pilha.imprimirQuantidade();
         pilha.exibirObjetos();
-
     }
 }
