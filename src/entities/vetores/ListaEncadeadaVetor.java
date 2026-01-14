@@ -36,6 +36,11 @@ public class ListaEncadeadaVetor {
     }
 
     public void addFim(int valor) {
+        if(cabeca == null) {
+            addInicio(valor);
+            return;
+        }
+
         No novo = new No(valor);
         No atual = cabeca;
 
@@ -80,6 +85,15 @@ public class ListaEncadeadaVetor {
     }
 
     public void removerFim() {
+        if(cabeca == null) {
+            System.out.println("Lista vazia.");
+            return;
+        }
+        if(cabeca.proximo == null) {
+            removerInicio();
+            return;
+        }
+
         No atual = cabeca;
         while(atual.proximo.proximo != null) {
             atual = atual.proximo;
