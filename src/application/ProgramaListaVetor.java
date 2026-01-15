@@ -23,6 +23,7 @@ public class ProgramaListaVetor {
         lista.imprimirLista();
         lista.verificarVazios();
         lista.verificarQuantidade();
+        lista.aumentarTamanhoLista();
 
         System.out.println();
 

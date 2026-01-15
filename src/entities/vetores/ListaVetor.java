@@ -19,6 +19,7 @@ public class ListaVetor {
             System.out.printf("Elemento %s adicionado no índice %d da lista.\n",novoElemento, indice);
         } else {
             System.out.printf("Já existe um elemento no índice %d.\n", indice);
+            imprimirIndice(indice);
         }
     }
 
@@ -45,6 +46,7 @@ public class ListaVetor {
             inserirElemento(novoElemento, indice);
         } else {
             System.out.printf("Elemento | %s | substituído por %s no índice %d.\n",lista[indice],novoElemento,indice);
+            lista[indice] = novoElemento;
         }
     }
 
@@ -62,11 +64,31 @@ public class ListaVetor {
         }
     }
 
+    public void imprimirIndice(int indice) {
+        if(lista[indice] == null) {
+            System.out.println("Nenhum elemento encontrado nesse índice.");
+        } else {
+            System.out.printf("Elemento %s encontrado no índice %d.\n",lista[indice],indice);
+        }
+    }
+
     public void apagarLista() {
         for (int i = 0; i < tamanhoLista; i++) {
             lista[i] = null;
         }
         System.out.println("Lista apagada.");
+    }
+
+    public void aumentarTamanhoLista() {
+        tamanhoLista *= 2;
+        Object[] novaLista = new Object[tamanhoLista];
+
+        for(int i = 0; i < lista.length; i++) {
+            novaLista[i] = lista[i];
+        }
+
+        lista = novaLista;
+        System.out.printf("Tamanho da lista aumentada para %d.\n", tamanhoLista);
     }
 
     public void verificarVazios() {
@@ -82,6 +104,8 @@ public class ListaVetor {
             }
             if(contador == 0) {
                 System.out.println("Não há vazios na lista.");
+            } else {
+                System.out.printf("Existem %d vazios na lista.\n",contador);
             }
         }
     }
