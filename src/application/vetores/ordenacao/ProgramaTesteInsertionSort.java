@@ -1,10 +1,10 @@
 package application.vetores.ordenacao;
 
-import entities.sort.SelectionSort;
+import entities.sort.InsertionSort;
 
-public class ProgramaTesteSelection {
+public class ProgramaTesteInsertionSort {
     public static void main(String[] args) {
         int[] array = {10,14,24,2,5,19,3};
-        new SelectionSort(array);
+        new InsertionSort(array);
     }
 }
