@@ -5,21 +5,17 @@ public class InsertionSort {
         for (int i = 1; i < array.length; i++) {
             int elementoASerOrdenado = array[i];
             int j = i-1;
-
             while(j >= 0 && elementoASerOrdenado < array[j]) {
                 array[j+1] = array[j];
                 j--;
             }
-
             array[j+1] = elementoASerOrdenado;
         }
-
-        imprimirArray(array);
+        impressaoArray(array);
     }
-
-    public void imprimirArray(int[] array) {
+    public void impressaoArray(int[] array) {
         for(int num : array) {
-            System.out.println(num);
+            System.out.print(num + " ");
         }
     }
 }
