@@ -2,59 +2,58 @@ package entities.sort;
 
 public class MergeSort {
     public MergeSort(int[] array) {
-        mergesort(array, array.length);
+        mergesort(array);
     }
 
-    public void mergesort(int[] array, int tamanho) {
-        if(tamanho < 2) {
+    public void mergesort(int[] array) {
+        if(array.length < 2) {
             return;
         }
-        int meio = tamanho/2;
+        int meio = array.length/2;
 
-        int[] esquerdo = new int[meio];
-        int[] direito = new int[tamanho - meio];
+        int[] esquerda = new int[meio];
+        int[] direita = new int[array.length - meio];
 
         for(int i = 0; i < meio; i++) {
-            esquerdo[i] = array[i];
+            esquerda[i] = array[i];
         }
-        for(int i = meio; i < tamanho; i++) {
-            direito[i - meio] = array[i];
+        for(int i = meio; i < array.length; i++) {
+            direita[i-meio] = array[i];
         }
 
-        mergesort(esquerdo, meio);
-        mergesort(direito, tamanho-meio);
+        mergesort(esquerda);
+        mergesort(direita);
 
-        merge(array, esquerdo, meio, direito, tamanho-meio);
+        merge(array, esquerda, direita);
     }
 
-    public void merge(int[] array, int[] esquerdo, int tamanhoEsquerdo, int[] direito, int tamanhoDireito ) {
-        int indiceEsquerdo = 0;
-        int indiceDireito = 0;
+    public void merge(int[] array, int[]esquerda, int[]direita) {
         int indiceArray = 0;
+        int indiceEsquerda = 0;
+        int indiceDireita = 0;
 
-        while(indiceEsquerdo < tamanhoEsquerdo && indiceDireito < tamanhoDireito) {
-            if(esquerdo[indiceEsquerdo] < direito[indiceDireito]) {
-                array[indiceArray] = esquerdo[indiceEsquerdo];
+        while(indiceEsquerda < esquerda.length && indiceDireita < direita.length) {
+            if(esquerda[indiceEsquerda] <= direita[indiceDireita]) {
+                array[indiceArray] = esquerda[indiceEsquerda];
                 indiceArray++;
-                indiceEsquerdo++;
-            } else if(esquerdo[indiceEsquerdo] > direito[indiceDireito]) {
-                array[indiceArray] = direito[indiceDireito];
+                indiceEsquerda++;
+            } else {
+                array[indiceArray] = direita[indiceDireita];
                 indiceArray++;
-                indiceDireito++;
+                indiceDireita++;
             }
         }
 
-        while(indiceEsquerdo < tamanhoEsquerdo) {
-            array[indiceArray] = esquerdo[indiceEsquerdo];
+        while(indiceEsquerda < esquerda.length) {
+            array[indiceArray] = esquerda[indiceEsquerda];
             indiceArray++;
-            indiceEsquerdo++;
+            indiceEsquerda++;
         }
 
-        while(indiceDireito < tamanhoDireito) {
-            array[indiceArray] = direito[indiceDireito];
+        while(indiceDireita < direita.length) {
+            array[indiceArray] = direita[indiceDireita];
             indiceArray++;
-            indiceDireito++;
+            indiceDireita++;
         }
     }
-
 }
