@@ -9,9 +9,9 @@ public class SelectionSort {
                     minValue = j;
                 }
             }
-            int aux = array[i];
-            array[i] = array[minValue];
-            array[minValue] = aux;
+            int aux = array[minValue];
+            array[minValue] = array[i];
+            array[i] = aux;
         }
     }
 }

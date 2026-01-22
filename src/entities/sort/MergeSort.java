@@ -9,51 +9,52 @@ public class MergeSort {
         if(array.length < 2) {
             return;
         }
+
         int meio = array.length/2;
 
-        int[] esquerda = new int[meio];
-        int[] direita = new int[array.length - meio];
+        int[] esquerdo = new int[meio];
+        int[] direito = new int[array.length - meio];
 
         for(int i = 0; i < meio; i++) {
-            esquerda[i] = array[i];
+            esquerdo[i] = array[i];
         }
         for(int i = meio; i < array.length; i++) {
-            direita[i-meio] = array[i];
+            direito[i - meio] = array[i];
         }
 
-        mergesort(esquerda);
-        mergesort(direita);
+        mergesort(esquerdo);
+        mergesort(direito);
 
-        merge(array, esquerda, direita);
+        merge(array, esquerdo, direito);
     }
 
-    public void merge(int[] array, int[]esquerda, int[]direita) {
+    public void merge(int[] array, int[] esquerdo, int[] direito) {
         int indiceArray = 0;
-        int indiceEsquerda = 0;
-        int indiceDireita = 0;
+        int indiceEsquerdo = 0;
+        int indiceDireito = 0;
 
-        while(indiceEsquerda < esquerda.length && indiceDireita < direita.length) {
-            if(esquerda[indiceEsquerda] <= direita[indiceDireita]) {
-                array[indiceArray] = esquerda[indiceEsquerda];
+        while(indiceEsquerdo < esquerdo.length && indiceDireito < direito.length) {
+            if(esquerdo[indiceEsquerdo] <= direito[indiceDireito]) {
+                array[indiceArray] = esquerdo[indiceEsquerdo];
                 indiceArray++;
-                indiceEsquerda++;
+                indiceEsquerdo++;
             } else {
-                array[indiceArray] = direita[indiceDireita];
+                array[indiceArray] = direito[indiceDireito];
                 indiceArray++;
-                indiceDireita++;
+                indiceDireito++;
             }
         }
 
-        while(indiceEsquerda < esquerda.length) {
-            array[indiceArray] = esquerda[indiceEsquerda];
+        while(indiceEsquerdo < esquerdo.length) {
+            array[indiceArray] = esquerdo[indiceEsquerdo];
             indiceArray++;
-            indiceEsquerda++;
+            indiceEsquerdo++;
         }
 
-        while(indiceDireita < direita.length) {
-            array[indiceArray] = direita[indiceDireita];
+        while(indiceDireito < direito.length) {
+            array[indiceArray] = direito[indiceDireito];
             indiceArray++;
-            indiceDireita++;
+            indiceDireito++;
         }
     }
 }

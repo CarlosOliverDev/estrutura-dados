@@ -1,26 +1,25 @@
 package entities.sort;
 
 public class QuickSort {
-    public QuickSort(int[] array) {
-        quickSort(array, 0, array.length-1);
+    public QuickSort(int[]array) {
+        quicksort(array, 0, array.length-1);
     }
 
-    public void quickSort(int[] array, int inicio, int fim){
+    public void quicksort(int[] array, int inicio, int fim) {
         if(inicio < fim) {
-            int pivo = particionar(array, inicio, fim);
+            int pivot = particionar(array, inicio, fim);
 
-            quickSort(array, inicio, pivo-1);
-            quickSort(array,pivo+1, fim);
+            quicksort(array, inicio, pivot-1);
+            quicksort(array, pivot+1, fim);
         }
     }
 
     public int particionar(int[] array, int inicio, int fim) {
-        int pivo = array[fim];
         int i = inicio;
         for(int j = inicio; j < fim; j++) {
-            if(array[j] < pivo) {
+            if(array[j] < array[fim]) {
                 int aux = array[j];
-                array[j] = array[i];
+                array[j] =  array[i];
                 array[i] = aux;
 
                 i++;
