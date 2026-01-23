@@ -6,7 +6,7 @@ public class TimSort {
     }
 
     public void timSort(int[] array) {
-        if(array.length <= 4) {
+        if(array.length <= 16) {
             insertionSort(array);
         } else {
             int metade = array.length/2;
