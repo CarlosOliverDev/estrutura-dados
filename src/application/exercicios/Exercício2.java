@@ -1,5 +1,7 @@
 package application.exercicios;
 
+//Contar quantos elementos tem em uma lista sem o uso do for.
+
 public class Exercício2 {
     public static void main(String[] args) {
         String[] lista = {"banana","maça","biscoito","arroz","suco de laranja","fejião","água","","açúcar","esponja","leite","frango","carne"}; //12 + 1 vazio.
