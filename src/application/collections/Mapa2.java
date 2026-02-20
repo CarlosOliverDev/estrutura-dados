@@ -12,9 +12,10 @@ public class Mapa2 {
 
         //Adicionando elementos
         capitais.put("Brasil", "São Paulo");
-        capitais.put("País inexistente", "Brasília");
+        capitais.put("País inexistente", "Lugarnenhum");
         capitais.put("Brasil", "Brasília");
         capitais.put("Inglaterra", "Londres");
+        capitais.put("Espanha", "Madrid");
 
         System.out.println(capitais);
 
