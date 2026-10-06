@@ -8,7 +8,8 @@ public class HeapInterativo {
     static int[] heap = new int[16];
     static int tamanho = 0;
     static boolean maxHeap;
-    static final Scanner sc = new Scanner(System.in);
+    static final Scanner scanner = new Scanner(System.in);
+
 
     // ---------- regra do heap ----------
 
@@ -23,8 +24,7 @@ public class HeapInterativo {
         heap[j] = t;
     }
 
-    // ---------- operações do heap ----------
-
+    // ---------- Operações do Heap ----------
     // Desce o nó i até o lugar certo (assume que as subárvores já são heaps)
     static void heapify(int i) {
         int primeiro = i;
@@ -84,7 +84,7 @@ public class HeapInterativo {
 
     // ---------- impressão ----------
 
-    static boolean ehHeapValido() {
+    static boolean isHeapValido() {
         for (int i = 1; i < tamanho; i++) {
             if (temPrioridade(heap[i], heap[(i - 1) / 2])) return false;
         }
@@ -99,7 +99,18 @@ public class HeapInterativo {
         }
         sb.append("]");
         System.out.println(sb);
-        System.out.println("Heap válido: " + (ehHeapValido() ? "sim" : "não"));
+        System.out.println("Heap válido: " + (isHeapValido() ? "sim" : "não"));
+    }
+
+
+    static void imprimirArray() {
+        StringBuilder sb = new StringBuilder("\nArray atual: [");
+        for (int i = 0; i < tamanho; i++) {
+            if (i > 0) sb.append(", ");
+            sb.append(heap[i]);
+        }
+        sb.append("]");
+        System.out.println(sb);
     }
 
     // ---------- leitura de dados ----------
@@ -110,7 +121,7 @@ public class HeapInterativo {
             System.out.println("1 - Max-heap");
             System.out.println("2 - Min-heap");
             System.out.print("Opção: ");
-            String linha = sc.nextLine().trim();
+            String linha = scanner.nextLine().trim();
             if (linha.equals("1")) { maxHeap = true; return; }
             if (linha.equals("2")) { maxHeap = false; return; }
             System.out.println("Opção inválida.\n");
@@ -122,7 +133,7 @@ public class HeapInterativo {
         System.out.println("Pode enviar um por linha ou vários separados por espaço.");
         while (true) {
             System.out.print("> ");
-            String linha = sc.nextLine().trim();
+            String linha = scanner.nextLine().trim();
             if (linha.isEmpty()) break;
             for (String parte : linha.split("\\s+")) {
                 try {
@@ -139,7 +150,7 @@ public class HeapInterativo {
     static Integer lerInteiro(String mensagem) {
         System.out.print(mensagem);
         try {
-            return Integer.parseInt(sc.nextLine().trim());
+            return Integer.parseInt(scanner.nextLine().trim());
         } catch (NumberFormatException e) {
             System.out.println("Valor inválido.");
             return null;
@@ -169,7 +180,11 @@ public class HeapInterativo {
             System.out.println("6 - decreaseKey (índice e novo valor)");
             System.out.println("0 - sair");
             System.out.print("Opção: ");
-            String opcao = sc.nextLine().trim();
+            String opcao = scanner.nextLine().trim();
+
+            if (opcao.matches("[1-6]")) {
+                imprimirArray();
+            }
 
             switch (opcao) {
                 case "0":
